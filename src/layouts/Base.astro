@@ -1,0 +1,99 @@
+---
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/marcellus/400.css";
+import "../styles/globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "oSystems — Tecnologia que vira resultado",
+  description = "oSystems — consultoria executiva de tecnologia para micro, pequenas e médias empresas. Do diagnóstico à execução: nuvem, operação, equipamentos sob encomenda e software sob medida.",
+} = Astro.props;
+
+const fullTitle = title.includes("oSystems") ? title : `${title} · oSystems`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <noscript>
+      <style>{`[data-rv]{opacity:1 !important}.stagger>*{opacity:1 !important;transform:none !important}`}</style>
+    </noscript>
+  </head>
+  <body>
+    <Header client:load pathname={pathname} />
+    <slot />
+    <Footer />
+    <MobileCtaBar client:media="(max-width: 899px)" pathname={pathname} />
+    <script>
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      document.querySelectorAll("[data-rv]").forEach((node) => {
+        if (!(node instanceof HTMLElement)) return;
+        const delay = Number(node.dataset.delay || "0");
+        if (reduce) {
+          node.classList.add("rv-done");
+          return;
+        }
+
+        let done = false;
+        const show = () => {
+          if (done) return;
+          done = true;
+          node.classList.add("rv-in");
+          window.setTimeout(() => node.classList.add("rv-done"), 820);
+        };
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                window.setTimeout(show, delay);
+                io.disconnect();
+              }
+            });
+          },
+          { threshold: 0, rootMargin: "0px 0px -8% 0px" },
+        );
+
+        const vh = window.innerHeight || 800;
+        if (node.getBoundingClientRect().top < vh * 0.92) {
+          window.setTimeout(show, delay);
+        } else {
+          io.observe(node);
+        }
+
+        window.setTimeout(show, 1600);
+      });
+
+      document.addEventListener("submit", (event) => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement) || !form.hasAttribute("data-cta-form")) return;
+        event.preventDefault();
+        const thanks = form.parentElement?.querySelector("[data-cta-thanks]");
+        form.hidden = true;
+        if (thanks instanceof HTMLElement) thanks.hidden = false;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f5f7;
+  --foreground: #2b2f36;
+  --font-marcellus: "Marcellus", Georgia, serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-marcellus), Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern";
+}
+
+/* ---- Kinetic marquee ---- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Scroll reveal ---- */
+@keyframes rvIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+[data-rv] {
+  opacity: 0;
+}
+[data-rv].rv-in {
+  animation: rvIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+[data-rv].rv-done {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rv] {
+    opacity: 1;
+    animation: none;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ---- Hover / focus states ---- */
+.navlink:hover {
+  background: rgba(43, 47, 54, 0.05);
+}
+.navlink-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.btn-primary {
+  transition: filter 0.18s ease, transform 0.18s ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.14);
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.btn-gold {
+  transition: filter 0.18s ease;
+}
+.btn-gold:hover {
+  filter: brightness(1.05);
+}
+.btn-ghost {
+  transition: background 0.18s ease;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.footer-link {
+  transition: color 0.18s ease;
+}
+.footer-link:hover {
+  color: #9aa1ac;
+}
+.lift {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 40px 80px -38px rgba(20, 22, 25, 0.38);
+}
+.field:focus {
+  border-color: #9aa1ac !important;
+  background: #fff !important;
+}
+
+/* Visible keyboard focus (WCAG / impeccable a11y). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #c9a24b;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---- Motion: depth & life ---- */
+
+/* Hero slow Ken Burns zoom. Ends at scale(1) so the resting frame renders
+   the bitmap 1:1 — holding an upscale would keep the hero permanently soft. */
+@keyframes kenburns {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+.hero-kenburns {
+  animation: kenburns 24s ease-out forwards;
+  transform-origin: 70% 50%;
+}
+
+/* Card media zoom on hover (paired with .lift parent) */
+.media-zoom img {
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+.lift:hover .media-zoom img {
+  transform: scale(1.06);
+}
+
+/* Arrow nudge on hover */
+.btn-gold svg,
+.btn-primary svg,
+.lift svg,
+.gold-arrow svg {
+  transition: transform 0.25s ease;
+}
+.btn-gold:hover svg,
+.btn-primary:hover svg,
+.lift:hover svg,
+.gold-arrow:hover svg {
+  transform: translateX(3px);
+}
+
+/* Soft hover lift on non-link cards */
+.card-hover {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 162, 75, 0.45);
+}
+
+/* Staggered reveal for grid children (inside a [data-rv] wrapper) */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+}
+[data-rv].rv-in .stagger > * {
+  animation: rvIn 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.04s; }
+.stagger > *:nth-child(2) { animation-delay: 0.12s; }
+.stagger > *:nth-child(3) { animation-delay: 0.2s; }
+.stagger > *:nth-child(4) { animation-delay: 0.28s; }
+.stagger > *:nth-child(5) { animation-delay: 0.36s; }
+.stagger > *:nth-child(6) { animation-delay: 0.44s; }
+[data-rv].rv-done .stagger > * {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-kenburns { animation: none !important; }
+  .stagger > * { opacity: 1 !important; transform: none !important; animation: none !important; }
+}
+
+/* Brand-derived atmosphere for dark surfaces: a top light source + base
+   vignette + one whisper of gold tied to the brand accent. */
+.atmosphere-dark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 78% 10%, rgba(201, 162, 75, 0.07), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 22%, transparent 68%, rgba(0, 0, 0, 0.38) 100%);
+}
+
+/* Hero: extra darkening on mobile so text over the photo stays legible. */
+.hero-mobile-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(16, 18, 21, 0.68) 0%,
+    rgba(16, 18, 21, 0.32) 40%,
+    rgba(16, 18, 21, 0.82) 100%
+  );
+  opacity: 0;
+}
+@media (max-width: 899px) {
+  .hero-mobile-veil {
+    opacity: 1;
+  }
+}

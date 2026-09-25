@@ -1,25 +1,28 @@
 {
-  "name": "scaffold-tmp",
+  "name": "osystems-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.2.9",
+    "@astrojs/react": "^4.4.2",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/marcellus": "^5.2.8",
+    "astro": "^5.15.7",
+    "lucide-react": "^1.18.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@tailwindcss/vite": "^4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
