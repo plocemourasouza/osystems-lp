@@ -1,5 +1,4 @@
 node_modules
-.next
 .git
 .gitignore
 Dockerfile
@@ -8,11 +7,10 @@ docker-compose.yml
 README.md
 .env*
 originals
-scaffold-tmp
-model_*.html
+docs
 .agents
 .claude
-.serena
+.cursor
 .specs
 skills-lock.json
 npm-debug.log*

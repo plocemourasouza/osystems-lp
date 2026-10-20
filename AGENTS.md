@@ -1,5 +1,8 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Agent notes — oSystems website
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+- **Stack:** Astro 5 (static output) + React 19 islands + Tailwind v4 (via `@tailwindcss/vite`). Not Next.js — `next` is not installed; ignore any Next.js conventions.
+- **Structure:** `src/pages/*.astro` are thin route wrappers around `src/views/*.tsx`. Shared UI in `src/components/`, design tokens in `src/lib/tokens.ts`, layout in `src/layouts/Base.astro`.
+- **Styling:** mostly inline-style objects built from `src/lib/tokens.ts` (ported from the design prototype), not Tailwind classes. Follow that idiom.
+- **Images:** only files referenced from `src/` live in `public/uploads/`. Source artwork goes to `originals/uploads/`; unused WebP variants to `originals/unused/`.
+- **Copy drafts:** `docs/models/*.html` are standalone marketing/copy prototypes, not part of the build.
+- **Verify:** `npm run lint && npm run typecheck && npm run build`.
