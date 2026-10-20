@@ -44,7 +44,7 @@ const pathname = Astro.url.pathname;
     <Header client:load pathname={pathname} />
     <slot />
     <Footer />
-    <MobileCtaBar client:media="(max-width: 899px)" pathname={pathname} />
+    <MobileCtaBar client:media="(max-width: 899px)" />
     <script>
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

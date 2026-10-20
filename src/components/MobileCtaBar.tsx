@@ -4,7 +4,7 @@ import { COLORS } from "@/lib/tokens";
 
 // Persistent "Agendar diagnóstico" bar on mobile while scrolling.
 // Hides on desktop and when the #agendar form is already in view.
-export function MobileCtaBar({ pathname = "/" }: { pathname?: string }) {
+export function MobileCtaBar() {
 	const [show, setShow] = useState(false);
 
 	useEffect(() => {

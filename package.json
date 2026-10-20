@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "astro check"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -19,11 +20,17 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^10.13.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.72.0"
   }
 }
