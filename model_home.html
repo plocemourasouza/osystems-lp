@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  MODEL_HOME — Raiz de conteúdo da oSystems (cópia da página principal, com copy revisada)
+  · Copy melhorada: subhead do hero, dores mais viscerais, prova em números (Stats/KPI — padrão 21st.dev),
+    microcopy de redução de risco sob os CTAs, hub de conteúdo (bento) linkando as páginas de detalhe.
+  · Animações: Motion (motion.dev) via CDN — inView + stagger + ticker; fallback: conteúdo visível sem JS.
+  · Imagem do hero preservada (06-hero-pref.webp), conforme solicitado.
+-->
+<title>oSystems — Tecnologia que Vira Resultado | Consultoria, Nuvem, Equipamentos e Software</title>
+<meta name="description" content="A oSystems mostra onde a tecnologia gera retorno na sua PME e executa o que recomenda: nuvem, operação, equipamento certo e software sob medida. Comece pelo diagnóstico.">
+<style>
+:root{--bg:#F4F5F7;--surface:#FFF;--ink:#2B2F36;--ink-soft:#6B7280;--muted:#9AA1AC;--dark:#1A1D21;--darker:#141619;--panel:#1F2226;--gold:#C9A24B;--gold-soft:rgba(201,162,75,.5);--on-dark:#F4F5F7;--text-dark:#B7BCC4;--muted-dark:#868D97;--soft-dark:#D7DAE0}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(135deg,#E4C26B,#C9A24B,#B0832E)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--panel);color:var(--on-dark);border:1px solid var(--gold-soft);text-decoration:none;font-size:16.5px;font-weight:600;padding:16px 28px;border-radius:14px;box-shadow:0 18px 40px -14px rgba(0,0,0,.45);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 24px 48px -14px rgba(0,0,0,.55)}
+.ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--soft-dark);text-decoration:none;font-size:15px;font-weight:600;padding:15px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.16);transition:border-color .25s}
+.ghost:hover{border-color:rgba(255,255,255,.4)}
+header{position:sticky;top:0;z-index:20;background:rgba(20,22,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:15px;padding-bottom:15px;gap:14px;flex-wrap:wrap}
+.logo{font-family:Marcellus,Georgia,serif;font-size:21px;color:var(--on-dark);text-decoration:none}.logo span{color:var(--gold)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--text-dark);text-decoration:none;font-size:14px;transition:color .2s}
+nav a:hover{color:var(--on-dark)}
+.hd-cta{background:rgba(201,162,75,.12);border:1px solid var(--gold-soft);color:var(--on-dark);text-decoration:none;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:100px}
+/* HERO — imagem original preservada */
+.hero{position:relative;overflow:hidden;background:var(--darker);color:var(--on-dark);min-height:92svh;display:flex;align-items:center}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(16,18,21,.96) 0%,rgba(16,18,21,.88) 28%,rgba(20,22,25,.5) 48%,rgba(20,22,25,.16) 64%,rgba(20,22,25,0) 82%)}
+.hero .veil2{position:absolute;inset:0;background:linear-gradient(55deg,rgba(16,18,21,.55) 0%,rgba(16,18,21,.12) 38%,rgba(16,18,21,0) 60%)}
+.hero .inner{position:relative;padding:clamp(96px,10vw,130px) 0 clamp(64px,8vw,110px);max-width:680px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:100px;font-size:13.5px;font-weight:600;color:var(--soft-dark);margin-bottom:30px;backdrop-filter:blur(12px)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,.22)}
+.hero h1{font-size:clamp(40px,5.6vw,66px);line-height:1.08;margin-bottom:26px;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:#fff}
+.hero p.sub{font-size:clamp(17px,2vw,20.5px);color:var(--text-dark);max-width:52ch;margin-bottom:38px}
+.micro{margin-top:16px;font-size:13px;color:var(--muted-dark)}
+.trust{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:42px;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);font-size:14px;color:var(--muted)}
+.trust span::before{content:"◆";color:var(--gold);font-size:8px;margin-right:9px;vertical-align:2px}
+/* TICKER (marquee — padrão 21st.dev) */
+.ticker{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden;padding:18px 0;white-space:nowrap}
+.ticker .track{display:inline-flex;gap:52px;animation:tick 30s linear infinite;will-change:transform}
+.ticker span{font-family:Marcellus,Georgia,serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark)}
+.ticker b{color:var(--gold);font-weight:400;margin-right:52px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:clamp(80px,10vw,140px) 0;position:relative;overflow:hidden}
+.alt{background:var(--surface)}
+.dark-sec{background:var(--dark);color:var(--on-dark)}
+h2{font-size:clamp(28px,4vw,46px);margin-bottom:20px;max-width:26ch}
+.lead{color:var(--ink-soft);max-width:60ch;font-size:clamp(16px,1.9vw,19px)}
+.dark-sec .lead{color:var(--text-dark)}
+.grid{display:grid;gap:22px;margin-top:48px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:rgba(255,255,255,.92);border:1px solid rgba(43,47,54,.06);border-radius:20px;padding:28px 26px;box-shadow:0 24px 60px -38px rgba(20,22,25,.22);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 32px 70px -38px rgba(20,22,25,.35)}
+.card h3{font-size:18.5px;margin:0 0 8px}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+.card .more{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold-soft)}
+.dark-sec .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.dark-sec .card p{color:var(--text-dark)}
+.glyph{width:46px;height:46px;border-radius:14px;background:rgba(43,47,54,.05);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px}
+/* STATS (padrão Stats & KPIs — 21st.dev) */
+.stats{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:48px}
+.stat{border-top:1px solid rgba(255,255,255,.14);padding-top:22px}
+.stat .big{font-family:Marcellus,Georgia,serif;font-size:clamp(40px,5vw,58px);line-height:1;color:var(--on-dark)}
+.stat .big em{font-style:normal;color:var(--gold)}
+.stat p{color:var(--text-dark);font-size:14.5px;margin-top:8px;max-width:30ch}
+/* FRENTES */
+.frente{display:flex;flex-direction:column;text-decoration:none;border-radius:24px;overflow:hidden;background:rgba(255,255,255,.92);border:1px solid rgba(43,47,54,.06);box-shadow:0 26px 64px -36px rgba(20,22,25,.28);transition:transform .35s,box-shadow .35s}
+.frente:hover{transform:translateY(-6px);box-shadow:0 36px 80px -36px rgba(20,22,25,.42)}
+.frente.gold{border:1px solid var(--gold-soft);box-shadow:0 26px 64px -36px rgba(201,162,75,.4)}
+.frente .media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--dark)}
+.frente .media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.frente:hover .media img{transform:scale(1.05)}
+.frente .media .tag{position:absolute;left:16px;bottom:14px;padding:7px 13px;background:rgba(20,22,25,.45);border:1px solid rgba(255,255,255,.16);border-radius:100px;font-size:12px;font-weight:600;color:var(--on-dark);backdrop-filter:blur(10px)}
+.frente .body{padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;flex-grow:1}
+.frente h3{font-size:21px;color:var(--ink);margin-bottom:12px}
+.frente p{font-size:15px;color:var(--ink-soft);margin-bottom:24px;flex-grow:1}
+.frente .cta{font-size:15px;font-weight:600;color:var(--ink)}
+/* POR QUE */
+.split{display:grid;gap:clamp(44px,5vw,80px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:center}
+.portrait{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 44px 90px -44px rgba(20,22,25,.5);max-width:460px;margin:0 auto;aspect-ratio:4/5}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .cap{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
+.portrait .cap b{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:16.5px;color:var(--on-dark);display:block}
+.portrait .cap span{font-size:13.5px;color:var(--text-dark)}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,25,0) 44%,rgba(20,22,25,.72) 100%)}
+.dif{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(43,47,54,.12)}
+.dif h3{font-size:18px}
+.dif p{font-size:14.5px;color:var(--ink-soft)}
+/* MÉTODO */
+.step .n{font-family:Marcellus,Georgia,serif;font-size:clamp(44px,4.6vw,64px);line-height:.85;color:var(--muted)}
+/* HUB DE CONTEÚDO (bento — 21st.dev) */
+.hub{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:48px}
+.hub a{display:flex;flex-direction:column;gap:10px;text-decoration:none;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;transition:transform .3s,border-color .3s,background .3s}
+.hub a:hover{transform:translateY(-4px);border-color:var(--gold-soft);background:rgba(255,255,255,.08)}
+.hub .k{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.hub h3{font-size:19px;color:var(--on-dark)}
+.hub p{font-size:14px;color:var(--text-dark);flex-grow:1}
+.hub .go{font-size:13.5px;font-weight:600;color:var(--soft-dark)}
+.hub a.wide{grid-column:span 2}
+@media(max-width:760px){.hub a.wide{grid-column:span 1}}
+/* FAQ teaser */
+.faq details{background:var(--surface);border:1px solid rgba(43,47,54,.08);border-radius:16px;padding:20px 24px;margin-bottom:12px;max-width:820px}
+.faq summary{font-family:Marcellus,Georgia,serif;font-size:17.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::after{content:"+";color:var(--gold);font-size:22px}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:12px;color:var(--ink-soft);font-size:15px}
+.cta-band{background:var(--darker);color:var(--on-dark);text-align:center}
+.cta-band h2{margin:0 auto 16px;max-width:100%}
+.cta-band p{color:var(--text-dark);max-width:52ch;margin:0 auto 32px}
+footer{background:var(--darker);color:var(--muted-dark);font-size:13.5px;border-top:1px solid rgba(255,255,255,.08);padding:32px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+footer a{color:var(--soft-dark);text-decoration:none}
+/* Motion: estados iniciais aplicados via JS (progressive enhancement) */
+.mo-hidden{opacity:0;transform:translateY(24px)}
+@media(prefers-reduced-motion:reduce){.ticker .track{animation:none}.mo-hidden{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="model_home.html">o<span>S</span>ystems</a>
+<nav>
+<a href="model_sales_page.html">Consultoria</a>
+<a href="model_seo_content_brief.html">Guia da nuvem</a>
+<a href="model_pricing_page.html">Planos</a>
+<a href="model_objections_faq.html">Dúvidas</a>
+</nav>
+<a class="hd-cta" href="model_lead_gen_landing_page.html">Agendar diagnóstico</a>
+</div></header>
+
+<!-- HERO — imagem original, copy revisada -->
+<div class="hero">
+<img class="bg" src="public/uploads/06-hero-pref.webp" alt="" aria-hidden="true">
+<div class="veil"></div><div class="veil2"></div>
+<div class="wrap"><div class="inner" data-hero>
+<span class="badge"><i></i>Consultoria executiva de tecnologia</span>
+<h1>Tecnologia que vira resultado <em>— do diagnóstico à execução.</em></h1>
+<p class="sub">A oSystems mostra onde a tecnologia gera retorno na sua empresa — e executa o que recomenda: nuvem, operação, equipamento certo e software sob medida. Clareza antes do custo.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+<a class="btn" href="model_lead_gen_landing_page.html">Agendar diagnóstico →</a>
+<a class="ghost" href="#modelo">Como trabalhamos</a>
+</div>
+<p class="micro">Sem compromisso de contratação · Resposta em até 1 dia útil</p>
+<div class="trust"><span>Diagnóstico → execução</span><span>Parceiro, não fornecedor</span><span>Retorno antes de custo</span></div>
+</div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true"><div class="track">
+<span><b>◆</b>Diagnóstico</span><span><b>◆</b>Nuvem com economia real</span><span><b>◆</b>Operação organizada</span><span><b>◆</b>Equipamentos sob encomenda</span><span><b>◆</b>Software sob medida</span><span><b>◆</b>Automação com IA</span>
+<span><b>◆</b>Diagnóstico</span><span><b>◆</b>Nuvem com economia real</span><span><b>◆</b>Operação organizada</span><span><b>◆</b>Equipamentos sob encomenda</span><span><b>◆</b>Software sob medida</span><span><b>◆</b>Automação com IA</span>
+</div></div>
+
+<!-- PROBLEMA — copy revisada -->
+<section><div class="wrap">
+<div data-reveal>
+<p class="eyebrow">O mundo do gestor</p>
+<h2>Investir em tecnologia sem clareza custa caro — e a fatura não mostra onde.</h2>
+<p class="lead">A maioria das empresas não precisa de mais tecnologia. Precisa da tecnologia certa, bem aplicada — e de alguém que responda pelo resultado.</p>
+</div>
+<div class="grid g4" data-stagger>
+<div class="card"><div class="glyph">◐</div><h3>Decisão no escuro</h3><p>Investir sem saber se é o que o negócio precisa — e descobrir o erro só depois da fatura.</p></div>
+<div class="card"><div class="glyph">☁</div><h3>Migração sem retorno</h3><p>Nuvem sem organização não economiza: só muda o endereço do custo.</p><a class="more" href="model_seo_content_brief.html">Guia: migrar sem pagar mais →</a></div>
+<div class="card"><div class="glyph">⇄</div><h3>Operação travada</h3><p>Processos manuais e sistemas que não conversam drenam horas da equipe todos os dias.</p></div>
+<div class="card"><div class="glyph">⏸</div><h3>Projeto parado</h3><p>A boa ideia que nunca sai do papel por parecer cara ou complexa demais.</p></div>
+</div>
+</div></section>
+
+<!-- MODELO -->
+<section class="alt" id="modelo"><div class="wrap">
+<div class="split">
+<div data-reveal>
+<p class="eyebrow">Como atuamos</p>
+<h2>Diagnóstico, recomendação e execução — na mesma parceria.</h2>
+<p class="lead" style="margin-bottom:18px">Tudo começa pela consultoria. Entendemos seu cenário, apontamos o caminho com clareza e — diferente de quem entrega só um relatório — colocamos em prática o que recomendamos.</p>
+<p class="lead">Quando o diagnóstico aponta um equipamento ou um sistema, a oSystems provê. <strong style="color:var(--ink)">Você não fica sozinho com uma lista de boas intenções.</strong></p>
+<div style="margin-top:30px"><a class="btn" href="model_sales_page.html">Conhecer a consultoria completa →</a></div>
+</div>
+<div data-reveal style="border-radius:26px;overflow:hidden;box-shadow:0 44px 90px -44px rgba(20,22,25,.5)">
+<img src="public/uploads/11-parceria-metodo.webp" alt="Parceria e método de trabalho da oSystems" style="width:100%;height:100%;object-fit:cover;display:block">
+</div>
+</div>
+</div></section>
+
+<!-- PROVA EM NÚMEROS -->
+<section class="dark-sec"><div class="wrap">
+<div data-reveal>
+<p class="eyebrow">Prova</p>
+<h2 style="color:var(--on-dark)">O tipo de resultado que o método entrega.</h2>
+</div>
+<div class="stats" data-stagger>
+<div class="stat"><div class="big">dias <em>→ horas</em></div><p>Fechamento mensal de uma indústria leve após operação organizada e nuvem bem migrada.</p></div>
+<div class="stat"><div class="big"><em>horas/dia</em></div><p>Devolvidas à equipe de um comércio de serviços com automação e IA na leitura de documentos.</p></div>
+<div class="stat"><div class="big"><em>semanas</em> ao ar</div><p>Da ideia ao Go Live de uma startup, com baixo custo, pronta para validar com usuários reais.</p></div>
+</div>
+<p style="margin-top:26px;font-size:13.5px;color:var(--muted-dark);font-style:italic">Cenários ilustrativos do tipo de trabalho que a oSystems entrega.</p>
+</div></section>
+
+<!-- AS TRÊS FRENTES -->
+<section><div class="wrap">
+<div data-reveal>
+<p class="eyebrow">As três frentes</p>
+<h2>Uma porta de entrada. Dois braços de execução.</h2>
+</div>
+<div class="grid g3" data-stagger>
+<a class="frente gold" href="model_sales_page.html">
+<div class="media"><img src="public/uploads/08-consultoria-v2.webp" alt="Consultor da oSystems em reunião executiva"><span class="tag">Porta de entrada</span></div>
+<div class="body"><h3>Consultoria executiva</h3><p>O ponto de partida. Diagnóstico do seu cenário, plano de aplicação priorizado por retorno, migração para a nuvem e organização da operação.</p><span class="cta">Ver a oferta completa →</span></div>
+</a>
+<a class="frente" href="/equipamentos">
+<div class="media"><img src="public/uploads/09-equipamentos-v3.webp" alt="Equipamentos especificados sob encomenda"><span class="tag">Sob encomenda</span></div>
+<div class="body"><h3>Equipamentos sob encomenda</h3><p>Quando o diagnóstico aponta a necessidade, especificamos e fornecemos o equipamento certo — dimensionado para a sua operação, não para a média do mercado.</p><span class="cta">Ver equipamentos →</span></div>
+</a>
+<a class="frente" href="/desenvolvimento">
+<div class="media"><img src="public/uploads/10-desenvolvimento-v3.webp" alt="Dashboard de sistema sob medida da oSystems"><span class="tag">Sob medida</span></div>
+<div class="body"><h3>Desenvolvimento sob medida</h3><p>Automação com IA, pequenos sistemas e projetos tirados do papel com baixo custo. Especialidade em levar startups ao Go Live rápido.</p><span class="cta">Ver desenvolvimento →</span></div>
+</a>
+</div>
+</div></section>
+
+<!-- POR QUE OSYSTEMS -->
+<section class="alt"><div class="wrap">
+<div class="split">
+<div class="portrait" data-reveal>
+<img src="public/uploads/Paulo.jpeg" alt="Liderança da oSystems — consultoria executiva de tecnologia">
+<div class="cap"><b>Quem recomenda, executa.</b><span>Consultoria executiva, do diagnóstico à entrega.</span></div>
+</div>
+<div data-reveal>
+<p class="eyebrow">Por que a oSystems</p>
+<h2>O que muda quando quem recomenda também executa.</h2>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(24px,2.5vw,34px)" data-stagger>
+<div class="dif"><h3>Executamos o que recomendamos.</h3><p>O diagnóstico não termina em relatório — termina em resultado.</p></div>
+<div class="dif"><h3>Foco no investimento que se paga.</h3><p>Cada recomendação mira retorno, não custo. Inclusive quando o conselho é "não invista agora".</p></div>
+<div class="dif"><h3>Sob medida — de verdade.</h3><p>Equipamento e software dimensionados para a sua operação, não para a média do mercado.</p></div>
+<div class="dif"><h3>Do papel ao ar, rápido.</h3><p>Método próprio para colocar ideias em produção com baixo custo.</p></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<!-- MÉTODO -->
+<section><div class="wrap">
+<div data-reveal>
+<p class="eyebrow">O método</p>
+<h2>Como começa uma parceria com a oSystems.</h2>
+</div>
+<div class="grid g4" data-stagger>
+<div class="card step"><span class="n">01</span><h3 style="margin-top:14px">Diagnóstico</h3><p>Entendemos seu cenário, operação e objetivos de negócio.</p><a class="more" href="model_lead_gen_landing_page.html">O que sai do diagnóstico →</a></div>
+<div class="card step"><span class="n">02</span><h3 style="margin-top:14px">Recomendação</h3><p>Um plano claro, priorizado por impacto e retorno.</p></div>
+<div class="card step"><span class="n">03</span><h3 style="margin-top:14px">Execução</h3><p>Implementamos: nuvem, operação, equipamentos ou software.</p></div>
+<div class="card step"><span class="n">04</span><h3 style="margin-top:14px">Acompanhamento</h3><p>Ficamos perto para garantir que o investimento valeu.</p></div>
+</div>
+</div></section>
+
+<!-- HUB DE CONTEÚDO — raiz → páginas de detalhe -->
+<section class="dark-sec" id="explore"><div class="wrap">
+<div data-reveal>
+<p class="eyebrow">Explore em detalhe</p>
+<h2 style="color:var(--on-dark)">Cada assunto tem a sua página.</h2>
+<p class="lead">Esta é a raiz do conteúdo. Aprofunde no que interessa agora:</p>
+</div>
+<div class="hub" data-stagger>
+<a class="wide" href="model_lead_gen_landing_page.html"><span class="k">Comece aqui</span><h3>Diagnóstico executivo de tecnologia</h3><p>O que você recebe na sessão, para quem é e por que agendar sem medo. A porta de entrada de tudo.</p><span class="go">Abrir página do diagnóstico →</span></a>
+<a href="model_sales_page.html"><span class="k">A oferta completa</span><h3>Consultoria com execução</h3><p>Tudo o que está incluído, benefícios, provas, objeções e garantias — a página de vendas completa.</p><span class="go">Ver oferta →</span></a>
+<a href="model_pricing_page.html"><span class="k">Investimento</span><h3>Planos e formatos</h3><p>Diagnóstico, Consultoria com Execução e Parceria Contínua — com o caminho recomendado óbvio.</p><span class="go">Ver planos →</span></a>
+<a href="model_seo_content_brief.html"><span class="k">Guia prático</span><h3>Nuvem sem pagar mais caro</h3><p>Quando migrar, os 4 erros que encarecem a conta e o passo a passo que gera economia real.</p><span class="go">Ler o guia →</span></a>
+<a href="model_seo_landing_page.html"><span class="k">Para PMEs</span><h3>Consultoria de tecnologia para pequenas empresas</h3><p>O que faz, quando contratar e que resultados esperar — explicado para o seu porte.</p><span class="go">Entender →</span></a>
+<a href="model_objections_faq.html"><span class="k">Antes de decidir</span><h3>Dúvidas e objeções, respondidas</h3><p>As 6 hesitações mais comuns antes de contratar — respondidas com honestidade e prova.</p><span class="go">Tirar dúvidas →</span></a>
+</div>
+</div></section>
+
+<!-- FAQ TEASER -->
+<section class="faq"><div class="wrap">
+<div data-reveal>
+<p class="eyebrow">Perguntas rápidas</p>
+<h2>Antes de rolar até o fim</h2>
+</div>
+<div data-stagger style="margin-top:36px">
+<details open><summary>A oSystems só entrega relatório ou também executa?</summary><p>A oSystems executa o que recomenda. Depois do diagnóstico, a mesma equipe implementa: nuvem, operação, equipamentos sob encomenda e software sob medida.</p></details>
+<details><summary>Minha empresa é pequena demais para consultoria?</summary><p>Não. O diagnóstico é dimensionado para micro, pequenas e médias empresas — quem menos pode desperdiçar é quem mais ganha com clareza.</p></details>
+<details><summary>Quanto custa?</summary><p>O investimento é dimensionado pelo porte da operação e apresentado com transparência na conversa inicial. Veja os formatos na <a href="model_pricing_page.html" style="color:var(--ink);font-weight:600">página de planos</a>.</p></details>
+</div>
+<p style="margin-top:20px"><a href="model_objections_faq.html" style="color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold-soft)">Ver todas as dúvidas e objeções →</a></p>
+</div></section>
+
+<!-- CTA FINAL -->
+<section class="cta-band" id="agendar"><div class="wrap" data-reveal>
+<h2>Pronto para enxergar onde a tecnologia destrava resultado?</h2>
+<p>Comece pelo diagnóstico — sem compromisso de contratação, com resposta em até 1 dia útil.</p>
+<a class="btn" href="model_lead_gen_landing_page.html">Comece pelo diagnóstico →</a>
+</div></section>
+
+<footer><div class="wrap">
+<span>© oSystems — Consultoria executiva de tecnologia</span>
+<span>
+<a href="model_lead_gen_landing_page.html">Diagnóstico</a> ·
+<a href="model_sales_page.html">Consultoria</a> ·
+<a href="model_pricing_page.html">Planos</a> ·
+<a href="model_seo_content_brief.html">Guia da nuvem</a> ·
+<a href="model_objections_faq.html">Dúvidas</a>
+</span>
+</div></footer>
+
+<!-- Motion (motion.dev) — reveals com inView + stagger; fallback: sem JS, tudo permanece visível -->
+<script type="module">
+try {
+  const { animate, inView, stagger } = await import("https://cdn.jsdelivr.net/npm/motion@11/+esm");
+  const spring = { type: "spring", stiffness: 90, damping: 18 };
+
+  // Hero: entrada orquestrada
+  const hero = document.querySelector("[data-hero]");
+  if (hero) {
+    const parts = hero.children;
+    for (const el of parts) el.classList.add("mo-hidden");
+    animate(parts, { opacity: 1, y: [24, 0] }, { ...spring, delay: stagger(0.09) })
+      .finished.then(() => { for (const el of parts) el.classList.remove("mo-hidden"); });
+  }
+
+  // Blocos: reveal ao entrar na viewport
+  document.querySelectorAll("[data-reveal]").forEach(el => {
+    el.classList.add("mo-hidden");
+    inView(el, () => {
+      animate(el, { opacity: 1, y: [24, 0] }, spring)
+        .finished.then(() => el.classList.remove("mo-hidden"));
+    }, { amount: 0.25 });
+  });
+
+  // Grades: stagger dos filhos
+  document.querySelectorAll("[data-stagger]").forEach(grid => {
+    const kids = Array.from(grid.children);
+    kids.forEach(k => k.classList.add("mo-hidden"));
+    inView(grid, () => {
+      animate(kids, { opacity: 1, y: [28, 0] }, { ...spring, delay: stagger(0.08) })
+        .finished.then(() => kids.forEach(k => k.classList.remove("mo-hidden")));
+    }, { amount: 0.15 });
+  });
+} catch (e) {
+  // Sem rede ou CDN indisponível: página permanece 100% visível e funcional
+  document.querySelectorAll(".mo-hidden").forEach(el => el.classList.remove("mo-hidden"));
+}
+</script>
+</body>
+</html>

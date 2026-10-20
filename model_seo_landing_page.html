@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prompt 1 — SEO Landing Page Blueprint | Keyword: consultoria de tecnologia para pequenas empresas | Intenção: comercial -->
+<title>Consultoria de Tecnologia para Pequenas Empresas | oSystems</title>
+<meta name="description" content="Consultoria de tecnologia para pequenas e médias empresas: diagnóstico claro, plano priorizado por retorno e execução completa. Agende seu diagnóstico.">
+<style>
+:root{--bg:#F4F5F7;--surface:#FFF;--ink:#2B2F36;--ink-soft:#6B7280;--muted:#9AA1AC;--dark:#1A1D21;--darker:#141619;--panel:#1F2226;--gold:#C9A24B;--gold-soft:rgba(201,162,75,.5);--on-dark:#F4F5F7;--text-dark:#B7BCC4;--muted-dark:#868D97;--soft-dark:#D7DAE0}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:Marcellus,Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(135deg,#E4C26B,#C9A24B,#B0832E)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--panel);color:var(--on-dark);border:1px solid var(--gold-soft);text-decoration:none;font-size:16px;font-weight:600;padding:15px 28px;border-radius:14px;box-shadow:0 18px 40px -14px rgba(0,0,0,.45);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.ghost{display:inline-flex;align-items:center;background:transparent;color:var(--soft-dark);text-decoration:none;font-size:15px;font-weight:600;padding:14px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.16)}
+header{position:sticky;top:0;z-index:10;background:rgba(20,22,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{font-family:Marcellus,Georgia,serif;font-size:21px;color:var(--on-dark);text-decoration:none}.logo span{color:var(--gold)}
+nav a{color:var(--text-dark);text-decoration:none;font-size:14px;margin-left:22px}
+nav a:hover{color:var(--on-dark)}
+.hero{background:linear-gradient(120deg,#141619 0%,#1A1D21 55%,#22262b 100%);color:var(--on-dark);padding:clamp(80px,10vw,130px) 0 clamp(60px,8vw,100px);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-10%;top:-20%;width:560px;height:560px;background:radial-gradient(circle,rgba(120,140,170,.12),transparent 70%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:100px;font-size:13px;font-weight:600;color:var(--soft-dark);margin-bottom:28px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,.22)}
+.hero h1{font-size:clamp(36px,5.4vw,60px);line-height:1.1;max-width:18ch;margin-bottom:24px}
+.hero p{color:var(--text-dark);max-width:56ch;font-size:clamp(16px,2vw,19px);margin-bottom:36px}
+section{padding:clamp(64px,9vw,110px) 0}
+.alt{background:var(--surface)}
+.dark{background:var(--dark);color:var(--on-dark)}
+h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:18px;max-width:24ch}
+h3{font-size:20px;margin-bottom:10px}
+.lead{color:var(--ink-soft);max-width:62ch;font-size:clamp(16px,1.9vw,18.5px)}
+.dark .lead{color:var(--text-dark)}
+.grid{display:grid;gap:22px;margin-top:44px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:rgba(255,255,255,.92);border:1px solid rgba(43,47,54,.06);border-radius:20px;padding:28px 26px;box-shadow:0 24px 60px -38px rgba(20,22,25,.22)}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+.dark .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.dark .card p{color:var(--text-dark)}
+.num{font-family:Marcellus,Georgia,serif;font-size:52px;line-height:.9;color:var(--muted);display:block;margin-bottom:14px}
+.faq details{background:var(--surface);border:1px solid rgba(43,47,54,.08);border-radius:16px;padding:20px 24px;margin-bottom:12px}
+.faq summary{font-family:Marcellus,Georgia,serif;font-size:17.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::after{content:"+";color:var(--gold);font-size:22px}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:12px;color:var(--ink-soft);font-size:15px}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.links a{color:var(--ink);border:1px solid rgba(43,47,54,.14);border-radius:100px;padding:9px 18px;text-decoration:none;font-size:14px;font-weight:600;background:var(--surface)}
+.links a:hover{border-color:var(--gold-soft)}
+.cta-band{background:var(--darker);color:var(--on-dark);text-align:center}
+.cta-band h2{margin:0 auto 16px}
+.cta-band p{color:var(--text-dark);max-width:52ch;margin:0 auto 32px}
+footer{background:var(--darker);color:var(--muted-dark);font-size:13.5px;border-top:1px solid rgba(255,255,255,.08);padding:28px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="model_home.html">o<span>S</span>ystems</a>
+<nav><a href="model_sales_page.html">Consultoria</a><a href="model_pricing_page.html">Planos</a><a href="model_objections_faq.html">Dúvidas</a><a href="#agendar">Agendar diagnóstico</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+<span class="badge"><i></i>Para micro, pequenas e médias empresas</span>
+<h1>Consultoria de tecnologia para pequenas empresas — do diagnóstico à execução.</h1>
+<p>A consultoria de tecnologia para pequenas empresas da oSystems mostra onde investir com clareza — nuvem, operação, equipamentos ou software — e executa o que recomenda, com foco em retorno antes de custo.</p>
+<a class="btn" href="#agendar">Agendar diagnóstico →</a>&nbsp;&nbsp;<a class="ghost" href="#como-funciona">Como funciona</a>
+</div></div>
+
+<section id="o-que-e"><div class="wrap">
+<p class="eyebrow">O que é</p>
+<h2>O que faz uma consultoria de tecnologia para pequenas empresas?</h2>
+<p class="lead">Uma consultoria de tecnologia para pequenas empresas diagnostica o cenário do negócio, aponta onde a tecnologia gera retorno real e prioriza os investimentos por impacto. Na oSystems, o trabalho não termina no relatório: assumimos a execução — migração para a nuvem, organização da operação, equipamentos sob encomenda e software sob medida.</p>
+<div class="grid g3">
+<div class="card"><h3>Decisão com clareza</h3><p>Você deixa de investir no escuro. Cada recomendação vem priorizada por retorno esperado, não por tendência de mercado.</p></div>
+<div class="card"><h3>Execução incluída</h3><p>Diferente de consultorias que entregam apenas um plano, a oSystems implementa o que recomenda — você não fica sozinho com uma lista de boas intenções.</p></div>
+<div class="card"><h3>Sob medida para PME</h3><p>Soluções dimensionadas para a sua operação e o seu caixa, não para a média do mercado ou para grandes corporações.</p></div>
+</div>
+</div></section>
+
+<section class="alt" id="quando-contratar"><div class="wrap">
+<p class="eyebrow">Quando contratar</p>
+<h2>Sinais de que sua empresa precisa de consultoria de tecnologia</h2>
+<div class="grid g2">
+<div class="card"><h3>Processos manuais e sistemas que não conversam</h3><p>A equipe perde horas em retrabalho e planilhas paralelas porque a operação nunca foi organizada de ponta a ponta.</p></div>
+<div class="card"><h3>Migração para a nuvem sem economia real</h3><p>Você migrou (ou quer migrar) para a nuvem, mas sem organização o custo só aumentou — e o retorno nunca apareceu.</p></div>
+<div class="card"><h3>Projeto parado no papel</h3><p>Uma boa ideia de sistema ou automação nunca sai do papel por parecer cara ou complexa demais.</p></div>
+<div class="card"><h3>Compra de equipamento no achismo</h3><p>Equipamentos comprados sem especificação viram desperdício: ou sobram recursos, ou faltam no momento crítico.</p></div>
+</div>
+</div></section>
+
+<section class="dark" id="como-funciona"><div class="wrap">
+<p class="eyebrow">Como funciona</p>
+<h2>Como funciona a consultoria da oSystems</h2>
+<p class="lead">Um método em quatro etapas, do primeiro diagnóstico ao acompanhamento do resultado.</p>
+<div class="grid g3" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+<div class="card"><span class="num">01</span><h3>Diagnóstico</h3><p>Entendemos seu cenário, operação e objetivos de negócio.</p></div>
+<div class="card"><span class="num">02</span><h3>Recomendação</h3><p>Um plano claro, priorizado por impacto e retorno sobre o investimento.</p></div>
+<div class="card"><span class="num">03</span><h3>Execução</h3><p>Implementamos: nuvem, operação, equipamentos ou software sob medida.</p></div>
+<div class="card"><span class="num">04</span><h3>Acompanhamento</h3><p>Ficamos perto para garantir que o investimento valeu a pena.</p></div>
+</div>
+</div></section>
+
+<section id="resultados"><div class="wrap">
+<p class="eyebrow">Resultados típicos</p>
+<h2>O tipo de problema que resolvemos</h2>
+<div class="grid g3">
+<div class="card"><h3>Indústria leve (PME)</h3><p>Reorganização da operação e migração para a nuvem reduziram o tempo de fechamento mensal de dias para horas.</p></div>
+<div class="card"><h3>Comércio de serviços</h3><p>Automação de uma rotina repetitiva com apoio de IA na leitura de documentos eliminou trabalho manual diário da equipe.</p></div>
+<div class="card"><h3>Startup</h3><p>Uma ideia saiu do papel e chegou ao ar em poucas semanas, com baixo custo, pronta para validar com usuários reais.</p></div>
+</div>
+<p style="margin-top:20px;font-size:13.5px;color:var(--muted);font-style:italic">Cenários ilustrativos do tipo de trabalho que a oSystems entrega.</p>
+</div></section>
+
+<section class="alt faq" id="faq"><div class="wrap">
+<p class="eyebrow">Perguntas frequentes</p>
+<h2>Perguntas sobre consultoria de tecnologia para pequenas empresas</h2>
+<div style="margin-top:36px;max-width:820px">
+<details open><summary>Quanto custa uma consultoria de tecnologia para pequena empresa?</summary><p>O investimento depende do escopo do diagnóstico e da execução. Na oSystems, tudo começa por um diagnóstico dimensionado para PMEs, com plano priorizado por retorno — o objetivo é que a consultoria se pague com a economia e a eficiência geradas.</p></details>
+<details><summary>Minha empresa é pequena demais para consultoria de tecnologia?</summary><p>Não. Micro e pequenas empresas são justamente as que mais perdem dinheiro com tecnologia mal aplicada. O diagnóstico da oSystems é dimensionado para o porte e o caixa do seu negócio.</p></details>
+<details><summary>Qual a diferença entre a oSystems e uma consultoria tradicional?</summary><p>A consultoria tradicional entrega um relatório e vai embora. A oSystems diagnostica, recomenda e executa: migração para a nuvem, organização da operação, equipamentos sob encomenda e software sob medida.</p></details>
+<details><summary>A consultoria inclui migração para a nuvem?</summary><p>Sim. Quando o diagnóstico aponta que a nuvem gera economia real, a oSystems planeja e executa a migração com organização — evitando o erro comum de migrar e pagar mais caro.</p></details>
+<details><summary>Em quanto tempo aparece o resultado?</summary><p>Depende da frente priorizada. Automações e organização de operação costumam gerar ganhos visíveis nas primeiras semanas; projetos de software seguem método próprio de Go Live rápido.</p></details>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<p class="eyebrow">Continue explorando</p>
+<h2>Páginas relacionadas</h2>
+<div class="links">
+<a href="model_sales_page.html">Conheça a consultoria executiva em detalhes</a>
+<a href="model_pricing_page.html">Planos e formatos de investimento</a>
+<a href="model_seo_content_brief.html">Guia: migrar para a nuvem sem pagar mais</a>
+<a href="model_home.html#modelo">Como a oSystems trabalha</a>
+</div>
+</div></section>
+
+<section class="cta-band" id="agendar"><div class="wrap">
+<h2 style="max-width:100%">Pronto para investir em tecnologia com clareza?</h2>
+<p>Comece pelo diagnóstico. Entendemos seu cenário e mostramos onde a tecnologia destrava resultado — antes de qualquer custo maior.</p>
+<a class="btn" href="mailto:contato@osystems.com.br">Agendar diagnóstico →</a>
+</div></section>
+
+<footer><div class="wrap"><span>© oSystems — Consultoria executiva de tecnologia</span><span>Variação: SEO Landing Page Blueprint (Prompt 1)</span></div></footer>
+</body>
+</html>

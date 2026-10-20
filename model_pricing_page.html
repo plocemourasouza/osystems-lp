@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prompt 10 — Pricing Page | Plano recomendado óbvio, objeções de custo respondidas antes do FAQ, CTA + reversão de risco -->
+<title>Planos e Investimento — Consultoria de Tecnologia oSystems</title>
+<meta name="description" content="Conheça os formatos de trabalho da oSystems: diagnóstico executivo, consultoria com execução e parceria contínua. Investimento dimensionado por porte, foco em retorno.">
+<style>
+:root{--bg:#F4F5F7;--surface:#FFF;--ink:#2B2F36;--ink-soft:#6B7280;--muted:#9AA1AC;--dark:#1A1D21;--darker:#141619;--panel:#1F2226;--gold:#C9A24B;--gold-soft:rgba(201,162,75,.5);--on-dark:#F4F5F7;--text-dark:#B7BCC4;--muted-dark:#868D97;--soft-dark:#D7DAE0}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(135deg,#E4C26B,#C9A24B,#B0832E)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--panel);color:var(--on-dark);border:1px solid var(--gold-soft);text-decoration:none;font-size:16px;font-weight:600;padding:15px 28px;border-radius:14px;box-shadow:0 18px 40px -14px rgba(0,0,0,.45)}
+.btn.outline{background:transparent;color:var(--ink);border:1px solid rgba(43,47,54,.25);box-shadow:none}
+header{position:sticky;top:0;z-index:10;background:rgba(20,22,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{font-family:Marcellus,Georgia,serif;font-size:21px;color:var(--on-dark);text-decoration:none}.logo span{color:var(--gold)}
+nav a{color:var(--text-dark);text-decoration:none;font-size:14px;margin-left:22px}
+.hero{background:linear-gradient(120deg,#141619,#1A1D21 58%,#22262b);color:var(--on-dark);padding:clamp(72px,9vw,110px) 0;text-align:center}
+.hero h1{font-size:clamp(32px,4.8vw,52px);line-height:1.12;max-width:22ch;margin:0 auto 18px}
+.hero p{color:var(--text-dark);max-width:54ch;margin:0 auto;font-size:clamp(16px,2vw,19px)}
+.plans{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:-56px;position:relative;z-index:2;padding-bottom:clamp(56px,7vw,80px)}
+.plan{background:var(--surface);border:1px solid rgba(43,47,54,.08);border-radius:24px;padding:34px 30px;box-shadow:0 30px 70px -40px rgba(20,22,25,.35);display:flex;flex-direction:column}
+.plan.rec{background:var(--dark);color:var(--on-dark);border:1px solid var(--gold-soft);transform:translateY(-14px);box-shadow:0 40px 90px -40px rgba(201,162,75,.35)}
+.plan .tier{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.plan.rec .tier{color:var(--gold)}
+.plan h3{font-size:23px;margin:12px 0 6px}
+.plan .best{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px}
+.plan.rec .best{color:var(--text-dark)}
+.plan .price{font-family:Marcellus,Georgia,serif;font-size:26px;margin-bottom:4px}
+.plan .per{font-size:12.5px;color:var(--muted);margin-bottom:22px}
+.plan ul{list-style:none;margin-bottom:28px;flex-grow:1}
+.plan li{padding:9px 0 9px 26px;position:relative;font-size:14.5px;color:var(--ink-soft);border-top:1px solid rgba(43,47,54,.07)}
+.plan.rec li{color:var(--text-dark);border-top:1px solid rgba(255,255,255,.09)}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+.rec-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#141619;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 16px;border-radius:100px;white-space:nowrap}
+.nudge{background:rgba(201,162,75,.08);border:1px solid rgba(201,162,75,.35);border-radius:14px;padding:14px 18px;font-size:13.5px;margin-bottom:24px}
+.plan.rec .nudge{color:var(--soft-dark)}
+section{padding:clamp(56px,8vw,96px) 0}
+.alt{background:var(--surface)}
+h2{font-size:clamp(25px,3.4vw,38px);margin-bottom:18px}
+.lead{color:var(--ink-soft);max-width:60ch;font-size:clamp(16px,1.9vw,18px)}
+.cost-obj{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:36px}
+.cost-obj .card{background:rgba(255,255,255,.92);border:1px solid rgba(43,47,54,.06);border-radius:20px;padding:26px;box-shadow:0 24px 60px -38px rgba(20,22,25,.2)}
+.cost-obj h3{font-size:18px;margin-bottom:8px}
+.cost-obj p{font-size:14.5px;color:var(--ink-soft)}
+.faq details{background:var(--bg);border:1px solid rgba(43,47,54,.08);border-radius:16px;padding:20px 24px;margin-bottom:12px;max-width:820px}
+.faq summary{font-family:Marcellus,Georgia,serif;font-size:17px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::after{content:"+";color:var(--gold);font-size:22px}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:12px;color:var(--ink-soft);font-size:15px}
+.final{background:var(--darker);color:var(--on-dark);text-align:center;padding:clamp(72px,9vw,110px) 0}
+.final h2{max-width:24ch;margin:0 auto 16px}
+.final p{color:var(--text-dark);max-width:52ch;margin:0 auto 32px}
+.risk{margin-top:18px;font-size:13.5px;color:var(--muted-dark)}
+footer{background:var(--darker);color:var(--muted-dark);font-size:13.5px;border-top:1px solid rgba(255,255,255,.08);padding:28px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="model_home.html">o<span>S</span>ystems</a>
+<nav><a href="model_sales_page.html">Consultoria</a><a href="model_pricing_page.html">Planos</a><a href="model_objections_faq.html">Dúvidas</a><a href="#agendar">Agendar diagnóstico</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+<p class="eyebrow" style="justify-content:center">Planos e investimento</p>
+<h1>Um formato para cada momento — e um caminho óbvio para começar.</h1>
+<p>Todo trabalho da oSystems começa pelo diagnóstico. O que muda entre os formatos é a profundidade da execução e a proximidade da parceria.</p>
+</div></div>
+
+<div class="wrap"><div class="plans">
+
+<div class="plan">
+<span class="tier">Começo</span>
+<h3>Diagnóstico Executivo</h3>
+<p class="best">Para quem precisa de clareza antes de qualquer investimento.</p>
+<p class="price">Sob consulta</p>
+<p class="per">valor único, dimensionado pelo porte</p>
+<ul>
+<li>Mapeamento do cenário de tecnologia e operação</li>
+<li>Plano de aplicação priorizado por retorno</li>
+<li>Estimativa honesta de economia (inclusive "não invista agora")</li>
+<li>Sessão executiva de apresentação do plano</li>
+</ul>
+<a class="btn outline" href="#agendar">Começar pelo diagnóstico</a>
+</div>
+
+<div class="plan rec" style="position:relative">
+<span class="rec-flag">★ RECOMENDADO — o formato que gera resultado</span>
+<span class="tier">Diagnóstico + Execução</span>
+<h3>Consultoria com Execução</h3>
+<p class="best">Para quem quer o plano implementado por quem o desenhou.</p>
+<p class="price">Sob consulta</p>
+<p class="per">por projeto ou por frente executada</p>
+<ul>
+<li>Tudo do Diagnóstico Executivo</li>
+<li>Migração para a nuvem com dimensionamento sob medida</li>
+<li>Organização da operação e integração de sistemas</li>
+<li>Equipamentos sob encomenda, quando o plano apontar</li>
+<li>Software sob medida e automações com IA</li>
+<li>Acompanhamento até o retorno aparecer</li>
+</ul>
+<div class="nudge"><strong>Por que este?</strong> É onde o diferencial da oSystems opera por inteiro: quem recomenda, executa — sem o vão entre o relatório e o resultado.</div>
+<a class="btn" href="#agendar">Quero diagnóstico + execução →</a>
+</div>
+
+<div class="plan">
+<span class="tier">Continuidade</span>
+<h3>Parceria Contínua</h3>
+<p class="best">Para quem já executou e quer direção permanente de tecnologia.</p>
+<p class="price">Sob consulta</p>
+<p class="per">assinatura mensal</p>
+<ul>
+<li>Revisões periódicas de custos e consumo (nuvem inclusa)</li>
+<li>Priorização contínua de novas frentes por retorno</li>
+<li>Evolução dos sistemas e automações entregues</li>
+<li>Canal direto de decisão com a consultoria</li>
+</ul>
+<a class="btn outline" href="#agendar">Conversar sobre parceria</a>
+</div>
+
+</div></div>
+
+<section class="alt"><div class="wrap">
+<p class="eyebrow">Antes que você pergunte</p>
+<h2>As 3 objeções de custo, respondidas já</h2>
+<div class="cost-obj">
+<div class="card"><h3>"Por que 'sob consulta' e não um preço fechado?"</h3><p>Porque cobrar o mesmo de uma operação com 5 pessoas e uma com 80 seria injusto com uma das duas. O valor é dimensionado pelo porte — e apresentado com transparência na primeira conversa, antes de qualquer compromisso.</p></div>
+<div class="card"><h3>"Isso cabe no caixa de uma PME?"</h3><p>O plano é priorizado por retorno justamente para caber: começa-se pela frente que se paga mais rápido, e o resultado dela financia as próximas.</p></div>
+<div class="card"><h3>"E se eu pagar o diagnóstico e não contratar a execução?"</h3><p>O plano é seu, sem amarras. Você pode executá-lo com equipe interna ou terceiros — e mesmo assim terá saído da conversa com clareza que não tinha antes.</p></div>
+</div>
+</div></section>
+
+<section class="faq"><div class="wrap">
+<p class="eyebrow">FAQ de investimento</p>
+<h2>Custo, cobrança e garantias</h2>
+<div style="margin-top:32px">
+<details open><summary>Como é feita a cobrança?</summary><p>O Diagnóstico Executivo tem valor único. A execução é cobrada por projeto ou por frente; a Parceria Contínua é uma assinatura mensal. Tudo é formalizado em proposta antes do início.</p></details>
+<details><summary>Existe fidelidade na Parceria Contínua?</summary><p>Os termos de permanência são definidos em contrato e apresentados antes da assinatura — sem cláusula escondida.</p></details>
+<details><summary>O valor do diagnóstico é abatido se eu contratar a execução?</summary><p>As condições comerciais entre diagnóstico e execução são apresentadas na proposta. A regra da casa é simples: quem avança para a execução nunca paga duas vezes pelo mesmo trabalho.</p></details>
+<details><summary>Que garantia eu tenho?</summary><p>O compromisso de clareza: recomendamos retorno, não gasto. Se o diagnóstico indicar que o melhor é não investir agora, é isso que estará no plano.</p></details>
+</div>
+</div></section>
+
+<div class="final" id="agendar"><div class="wrap">
+<h2>O plano certo fica óbvio depois do diagnóstico.</h2>
+<p>Agende a conversa inicial: você sai com clareza sobre o formato ideal — e com o valor exato na mesa, sem surpresa.</p>
+<a class="btn" href="mailto:contato@osystems.com.br?subject=Planos%20e%20investimento">Agendar diagnóstico →</a>
+<p class="risk">Sem compromisso de contratação · Proposta transparente antes de qualquer início</p>
+</div></div>
+
+<footer><div class="wrap"><span>© oSystems — Consultoria executiva de tecnologia</span><span>Variação: Pricing Page (Prompt 10)</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prompt 6 — Landing Page A/B Variant | 3 variantes de hero com ângulos de persuasão distintos + hipótese de teste -->
+<title>oSystems — Variantes A/B de Hero | Teste de Conversão</title>
+<meta name="description" content="Três variantes de hero para a home da oSystems, cada uma com um ângulo de persuasão distinto: resultado, custo do status quo e reversão de risco.">
+<style>
+:root{--bg:#F4F5F7;--surface:#FFF;--ink:#2B2F36;--ink-soft:#6B7280;--muted:#9AA1AC;--dark:#1A1D21;--darker:#141619;--panel:#1F2226;--gold:#C9A24B;--gold-soft:rgba(201,162,75,.5);--on-dark:#F4F5F7;--text-dark:#B7BCC4;--muted-dark:#868D97;--soft-dark:#D7DAE0}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(135deg,#E4C26B,#C9A24B,#B0832E)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--panel);color:var(--on-dark);border:1px solid var(--gold-soft);text-decoration:none;font-size:16.5px;font-weight:600;padding:16px 30px;border-radius:14px;box-shadow:0 18px 40px -14px rgba(0,0,0,.45)}
+header{position:sticky;top:0;z-index:20;background:rgba(20,22,25,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;flex-wrap:wrap;gap:12px}
+.logo{font-family:Marcellus,Georgia,serif;font-size:21px;color:var(--on-dark);text-decoration:none}.logo span{color:var(--gold)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:var(--soft-dark);border-radius:100px;padding:9px 18px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:Inter,system-ui,sans-serif}
+.tab.on{background:var(--gold);color:#141619;border-color:var(--gold)}
+.hero{background:linear-gradient(120deg,#141619,#1A1D21 58%,#22262b);color:var(--on-dark);padding:clamp(84px,10vw,130px) 0;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(34px,5.4vw,60px);line-height:1.09;max-width:18ch;margin-bottom:24px}
+.hero h1 em{font-style:normal;color:#fff}
+.hero p.sub{color:var(--text-dark);max-width:52ch;font-size:clamp(16.5px,2vw,20px);margin-bottom:38px}
+.variant{display:none}
+.variant.on{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.angle{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(201,162,75,.12);border:1px solid var(--gold-soft);border-radius:100px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.hyp{margin-top:40px;padding:18px 22px;border-left:3px solid var(--gold);background:rgba(255,255,255,.04);border-radius:0 14px 14px 0;max-width:640px}
+.hyp b{color:var(--on-dark);font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:6px}
+.hyp p{color:var(--text-dark);font-size:14.5px;margin:0}
+section{padding:clamp(64px,9vw,100px) 0}
+h2{font-size:clamp(25px,3.4vw,38px);margin-bottom:18px}
+.lead{color:var(--ink-soft);max-width:60ch;font-size:clamp(16px,1.9vw,18px)}
+table{width:100%;border-collapse:collapse;margin-top:36px;background:var(--surface);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px -38px rgba(20,22,25,.22)}
+th,td{text-align:left;padding:16px 20px;font-size:14.5px;border-bottom:1px solid rgba(43,47,54,.08);vertical-align:top}
+th{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:15.5px;background:var(--dark);color:var(--on-dark)}
+td b{font-weight:600}
+.rec-badge{display:inline-block;background:rgba(201,162,75,.12);border:1px solid var(--gold-soft);color:#8a6b25;border-radius:100px;padding:2px 12px;font-size:11.5px;font-weight:700}
+.note{background:var(--surface);border:1px solid rgba(43,47,54,.08);border-radius:18px;padding:26px 28px;margin-top:28px;max-width:760px}
+.note h3{font-size:17px;margin-bottom:8px}
+.note p{font-size:14.5px;color:var(--ink-soft)}
+footer{background:var(--darker);color:var(--muted-dark);font-size:13.5px;padding:28px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="model_home.html">o<span>S</span>ystems</a>
+<div class="tabs" role="tablist" aria-label="Variantes de hero">
+<button class="tab on" data-v="a" role="tab">Variante A · Resultado</button>
+<button class="tab" data-v="b" role="tab">Variante B · Custo do status quo</button>
+<button class="tab" data-v="c" role="tab">Variante C · Reversão de risco</button>
+</div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+
+<div class="variant on" id="v-a">
+<span class="angle">Ângulo 1 — Resultado</span>
+<h1>Tecnologia que vira resultado — <em>do diagnóstico à execução.</em></h1>
+<p class="sub">A oSystems mostra onde investir com clareza e executa o que recomenda: nuvem, operação, equipamento certo, software sob medida.</p>
+<a class="btn" href="#plano">Agendar diagnóstico →</a>
+<div class="hyp"><b>Hipótese de teste</b><p>Liderar com o resultado final ("vira resultado") converte mais visitantes orientados a ganho do que mensagens de dor ou de risco.</p></div>
+</div>
+
+<div class="variant" id="v-b">
+<span class="angle">Ângulo 2 — Custo do status quo</span>
+<h1>Cada mês sem clareza em tecnologia <em>custa caro — e você não vê na fatura.</em></h1>
+<p class="sub">Retrabalho, nuvem mal dimensionada e processos manuais drenam o caixa em silêncio. O diagnóstico da oSystems mostra onde — e a execução estanca.</p>
+<a class="btn" href="#plano">Descobrir o que estou perdendo →</a>
+<div class="hyp"><b>Hipótese de teste</b><p>Tornar visível o custo invisível da inação gera mais urgência (e cliques no CTA) do que prometer ganho futuro.</p></div>
+</div>
+
+<div class="variant" id="v-c">
+<span class="angle">Ângulo 3 — Reversão de risco</span>
+<h1>Invista em tecnologia <em>só depois de saber que vale a pena.</em></h1>
+<p class="sub">O diagnóstico da oSystems vem antes de qualquer custo maior — e você decide com um plano priorizado por retorno na mão, sem compromisso de contratação.</p>
+<a class="btn" href="#plano">Começar sem risco →</a>
+<div class="hyp"><b>Hipótese de teste</b><p>Remover o medo de "assinar um pacote caro" destrava conversões de PMEs mais conservadoras, ampliando a base de leads.</p></div>
+</div>
+
+</div></div>
+
+<section id="plano"><div class="wrap">
+<p class="eyebrow">Plano de teste</p>
+<h2>Comparativo das variantes</h2>
+<p class="lead">Três ângulos de persuasão genuinamente diferentes — não a mesma frase reescrita. Cada um pode vencer, dependendo do perfil de tráfego.</p>
+<table>
+<tr><th>Variante</th><th>Ângulo</th><th>O que testa</th><th>Prioridade</th></tr>
+<tr><td><b>A — Resultado</b></td><td>Ganho / outcome</td><td>Se a promessa de resultado concreto sustenta a conversão atual.</td><td><span class="rec-badge">★ Rodar primeiro (controle)</span></td></tr>
+<tr><td><b>B — Custo do status quo</b></td><td>Urgência / perda invisível</td><td>Se nomear o custo da inação gera mais urgência que prometer ganho.</td><td>2º — desafiante principal</td></tr>
+<tr><td><b>C — Reversão de risco</b></td><td>Segurança / sem compromisso</td><td>Se remover o risco percebido amplia a base de leads conservadores.</td><td>3º — segmento conservador</td></tr>
+</table>
+<div class="note">
+<h3>Métrica e duração recomendadas</h3>
+<p>Métrica primária: taxa de clique no CTA "Agendar diagnóstico" (e agendamentos concluídos como métrica de negócio). Rode A contra B por pelo menos 2–4 semanas ou até significância estatística — o que vier primeiro. Vencedor enfrenta C em seguida.</p>
+</div>
+</div></section>
+
+<footer><div class="wrap"><span>© oSystems — Consultoria executiva de tecnologia</span><span>Variação: Landing Page A/B Variants (Prompt 6)</span></div></footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.variant').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    document.getElementById('v-'+t.dataset.v).classList.add('on');
+  });
+});
+</script>
+</body>
+</html>

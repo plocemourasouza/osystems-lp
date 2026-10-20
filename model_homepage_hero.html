@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prompt 4 — Homepage Messaging & Hero | Posicionamento + hero compreensível em 5 segundos + 1 CTA primário -->
+<title>oSystems — Quem Recomenda, Executa | Consultoria de Tecnologia para PMEs</title>
+<meta name="description" content="Para PMEs que investem em tecnologia no escuro: a oSystems diagnostica, recomenda e executa — para o investimento virar resultado. Agende o diagnóstico.">
+<style>
+:root{--bg:#F4F5F7;--surface:#FFF;--ink:#2B2F36;--ink-soft:#6B7280;--muted:#9AA1AC;--dark:#1A1D21;--darker:#141619;--panel:#1F2226;--gold:#C9A24B;--gold-soft:rgba(201,162,75,.5);--on-dark:#F4F5F7;--text-dark:#B7BCC4;--muted-dark:#868D97;--soft-dark:#D7DAE0}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(135deg,#E4C26B,#C9A24B,#B0832E)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--panel);color:var(--on-dark);border:1px solid var(--gold-soft);text-decoration:none;font-size:16.5px;font-weight:600;padding:16px 30px;border-radius:14px;box-shadow:0 18px 40px -14px rgba(0,0,0,.45)}
+.ghost{display:inline-flex;align-items:center;background:transparent;color:var(--soft-dark);text-decoration:none;font-size:15px;font-weight:600;padding:15px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.16)}
+header{position:sticky;top:0;z-index:10;background:rgba(20,22,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{font-family:Marcellus,Georgia,serif;font-size:21px;color:var(--on-dark);text-decoration:none}.logo span{color:var(--gold)}
+nav a{color:var(--text-dark);text-decoration:none;font-size:14px;margin-left:22px}
+.hero{background:linear-gradient(115deg,#141619 0%,#1A1D21 52%,#23272d 100%);color:var(--on-dark);padding:clamp(90px,11vw,150px) 0 clamp(70px,9vw,110px);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:-12%;bottom:-30%;width:600px;height:600px;background:radial-gradient(circle,rgba(120,140,170,.11),transparent 70%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:100px;font-size:13.5px;font-weight:600;color:var(--soft-dark);margin-bottom:30px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,.22)}
+.hero h1{font-size:clamp(38px,5.6vw,64px);line-height:1.08;max-width:17ch;margin-bottom:24px}
+.hero h1 em{font-style:normal;color:#fff}
+.hero .sub{color:var(--text-dark);max-width:50ch;font-size:clamp(17px,2vw,20.5px);margin-bottom:40px}
+.trust{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:44px;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);font-size:14px;color:var(--muted)}
+.trust span::before{content:"◆";color:var(--gold);font-size:8px;margin-right:9px;vertical-align:2px}
+section{padding:clamp(64px,9vw,110px) 0}
+.alt{background:var(--surface)}
+.dark{background:var(--dark);color:var(--on-dark)}
+h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:18px}
+.lead{color:var(--ink-soft);max-width:60ch;font-size:clamp(16px,1.9vw,18.5px)}
+.dark .lead{color:var(--text-dark)}
+.pos{background:var(--dark);color:var(--on-dark)}
+.pos p.statement{font-family:Marcellus,Georgia,serif;font-size:clamp(24px,3.6vw,42px);line-height:1.25;max-width:26ch}
+.pos p.statement em{font-style:normal;color:var(--gold)}
+.grid{display:grid;gap:22px;margin-top:44px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:rgba(255,255,255,.92);border:1px solid rgba(43,47,54,.06);border-radius:20px;padding:28px 26px;box-shadow:0 24px 60px -38px rgba(20,22,25,.22)}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+.dark .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.dark .card p{color:var(--text-dark)}
+.order{counter-reset:sec;max-width:820px;margin-top:36px}
+.order li{list-style:none;display:flex;gap:20px;padding:20px 0;border-top:1px solid rgba(43,47,54,.1);align-items:baseline}
+.order li::before{counter-increment:sec;content:"0" counter(sec);font-family:Marcellus,Georgia,serif;font-size:26px;color:var(--muted);min-width:44px}
+.order b{font-weight:600}
+.order span{color:var(--ink-soft);font-size:15px}
+.alts{margin-top:36px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.alt-card{border:1px dashed rgba(43,47,54,.2);border-radius:18px;padding:24px}
+.alt-card.win{border:1px solid var(--gold-soft);background:rgba(201,162,75,.06)}
+.alt-card .tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.alt-card.win .tag{color:#8a6b25}
+.alt-card h3{font-size:19px;margin:10px 0 8px}
+.alt-card p{font-size:14px;color:var(--ink-soft)}
+.cta-band{background:var(--darker);color:var(--on-dark);text-align:center}
+.cta-band p{color:var(--text-dark);max-width:52ch;margin:0 auto 32px}
+footer{background:var(--darker);color:var(--muted-dark);font-size:13.5px;border-top:1px solid rgba(255,255,255,.08);padding:28px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="model_home.html">o<span>S</span>ystems</a>
+<nav><a href="model_sales_page.html">Consultoria</a><a href="model_pricing_page.html">Planos</a><a href="model_objections_faq.html">Dúvidas</a><a href="#agendar">Agendar diagnóstico</a></nav>
+</div></header>
+
+<!-- HERO RECOMENDADO — compreensível em ~5 segundos -->
+<div class="hero"><div class="wrap">
+<span class="badge"><i></i>Consultoria executiva de tecnologia para PMEs</span>
+<h1>Sua empresa não precisa de mais tecnologia. <em>Precisa da tecnologia certa — executada.</em></h1>
+<p class="sub">Diagnosticamos onde a tecnologia gera retorno no seu negócio e implementamos a recomendação: nuvem, operação, equipamento e software sob medida.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+<a class="btn" href="#agendar">Agendar diagnóstico →</a>
+<a class="ghost" href="#ordem">Como trabalhamos</a>
+</div>
+<div class="trust"><span>Diagnóstico → execução</span><span>Parceiro, não fornecedor</span><span>Retorno antes de custo</span></div>
+</div></div>
+
+<!-- POSICIONAMENTO -->
+<section class="pos"><div class="wrap">
+<p class="eyebrow">Posicionamento</p>
+<p class="statement">Para <em>PMEs que investem em tecnologia no escuro</em>, a oSystems diagnostica, recomenda e executa — para que <em>cada real investido vire resultado</em>.</p>
+</div></section>
+
+<!-- ORDEM DE SEÇÕES RECOMENDADA -->
+<section id="ordem"><div class="wrap">
+<p class="eyebrow">Arquitetura da página</p>
+<h2>A ordem de seções abaixo do hero</h2>
+<p class="lead">Sequência desenhada para levar o visitante da dor ao agendamento sem fricção:</p>
+<ul class="order">
+<li><b>Problema</b><span> — os 4 custos de investir sem clareza (decisão no escuro, migração sem retorno, operação desorganizada, projeto parado).</span></li>
+<li><b>Modelo</b><span> — consultoria no centro; nuvem, operação, equipamentos e desenvolvimento como braços de execução.</span></li>
+<li><b>As três frentes</b><span> — consultoria (porta de entrada), equipamentos sob encomenda, desenvolvimento sob medida.</span></li>
+<li><b>Prova</b><span> — cenários reais por segmento: indústria leve, comércio de serviços, startup.</span></li>
+<li><b>Método</b><span> — diagnóstico, recomendação, execução, acompanhamento.</span></li>
+<li><b>CTA final</b><span> — repetição da promessa + agendar diagnóstico.</span></li>
+</ul>
+</div></section>
+
+<!-- PROVA RECOMENDADA -->
+<section class="dark"><div class="wrap">
+<p class="eyebrow">Elemento de prova nº 1</p>
+<h2>O que mais aumenta confiança nesta página</h2>
+<p class="lead">Um resultado concreto e mensurável, no idioma do gestor:</p>
+<div class="grid g3">
+<div class="card"><h3>Fechamento mensal</h3><p>De dias para horas após reorganização da operação e migração para a nuvem em uma indústria leve.</p></div>
+<div class="card"><h3>Trabalho manual</h3><p>Rotina diária eliminada com automação e IA na leitura de documentos em um comércio de serviços.</p></div>
+<div class="card"><h3>Go Live</h3><p>Ideia de startup no ar em poucas semanas, com baixo custo, pronta para validar com usuários reais.</p></div>
+</div>
+</div></section>
+
+<!-- BASTIDORES: AS 3 OPÇÕES DE HERO -->
+<section class="alt"><div class="wrap">
+<p class="eyebrow">Bastidores da mensagem</p>
+<h2>As 3 opções de hero avaliadas</h2>
+<div class="alts">
+<div class="alt-card win"><span class="tag">★ Publicada — ângulo: tecnologia certa</span><h3>"Sua empresa não precisa de mais tecnologia. Precisa da tecnologia certa — executada."</h3><p>Nomeia a crença errada do visitante e a corrige na mesma frase. Diferencia execução de relatório.</p></div>
+<div class="alt-card"><span class="tag">Opção B — ângulo: resultado</span><h3>"Tecnologia que vira resultado — do diagnóstico à execução."</h3><p>A promessa atual do site. Forte, mas menos específica sobre para quem é.</p></div>
+<div class="alt-card"><span class="tag">Opção C — ângulo: parceria</span><h3>"O parceiro de tecnologia que não te deixa sozinho com um relatório."</h3><p>Boa diferenciação, porém exige contexto prévio sobre consultorias tradicionais.</p></div>
+</div>
+</div></section>
+
+<section class="cta-band" id="agendar"><div class="wrap">
+<h2>Comece pelo diagnóstico.</h2>
+<p>Entendemos seu cenário e mostramos onde a tecnologia destrava resultado — antes de qualquer custo maior.</p>
+<a class="btn" href="mailto:contato@osystems.com.br">Agendar diagnóstico →</a>
+</div></section>
+
+<footer><div class="wrap"><span>© oSystems — Consultoria executiva de tecnologia</span><span>Variação: Homepage Messaging &amp; Hero (Prompt 4)</span></div></footer>
+</body>
+</html>
